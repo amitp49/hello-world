@@ -1,0 +1,16 @@
+$dira = "C:\Users\amitp49\Downloads\nse_fno_data_2016"
+$dirb = "C:\Users\amitp49\Downloads\Unzip" 
+
+$list = Get-childitem -recurse $dira -include *.zip
+
+$shell = new-object -com shell.application
+
+foreach($file in $list)
+{
+    $zip = $shell.NameSpace($file.FullName)
+    foreach($item in $zip.items())
+    {
+        $shell.Namespace($dirb).copyhere($item)
+    }
+    #Remove-Item $file
+}
