@@ -44,3 +44,6 @@ SELECT * FROM nsewebdata.fo18MAY2005bhav where symbol='NIFTY' and EXPIRY_DT like
 #STRIKE_PR > (SELECT OPEN FROM nsewebdata.fo04MAY2009bhav where symbol='BANKNIFTY' and INSTRUMENT='FUTIDX' and EXPIRY_DT like '%MAY%') and
 #STRIKE_PR < (SELECT OPEN FROM nsewebdata.fo04MAY2009bhav where symbol='BANKNIFTY' and INSTRUMENT='FUTIDX' and EXPIRY_DT like '%MAY%') + 200
 #order by STRIKE_PR desc;
+
+
+SELECT STRIKE_PR,OPEN,CLOSE,CLOSE-OPEN FROM nsewebdata.fo03oct2016bhav where symbol='BANKNIFTY' and INSTRUMENT='OPTIDX' and EXPIRY_DT like '%oct%' and OPEN!=0 and             OPTION_TYP = 'CE' and             STRIKE_PR > 19511.15 and             STRIKE_PR < 19631.15             order by STRIKE_PR desc
