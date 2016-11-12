@@ -23,6 +23,8 @@ TABLE_NAME,substr(TABLE_NAME,3,9) as fulldate,
         IF(substr(TABLE_NAME,5,3) = 'OCT', 10,
         IF(substr(TABLE_NAME,5,3) = 'NOV', 11,
         IF(substr(TABLE_NAME,5,3) = 'DEC', 12,0)))))))))))) as monthnum,
+        CONVERT(substr(TABLE_NAME,3,2),UNSIGNED INTEGER) AS daynum,
+        CONVERT(substr(TABLE_NAME,8,4),UNSIGNED INTEGER) AS yearnum,
 		TABLE_ROWS
      FROM INFORMATION_SCHEMA.TABLES 
      WHERE TABLE_SCHEMA = 'nsewebdata'
