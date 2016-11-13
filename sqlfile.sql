@@ -57,3 +57,10 @@ SELECT SUBSTRING_INDEX( Date, '-', 1 ),
 SUBSTRING(SUBSTRING_INDEX(Date, '-', 2),CHAR_LENGTH(SUBSTRING_INDEX(Date, '-', 1))+2),
 SUBSTRING_INDEX( Date, '-', -1 ),
 Date from nsewebdata.expiry;
+
+update nsewebdata.expiry
+set
+Datepart =  SUBSTRING_INDEX( Date, '-', 1 ),
+Monthpart = SUBSTRING(SUBSTRING_INDEX(Date, '-', 2),CHAR_LENGTH(SUBSTRING_INDEX(Date, '-', 1))+2),
+Yearpart = SUBSTRING_INDEX( Date, '-', -1 )
+where Datepart=0;
