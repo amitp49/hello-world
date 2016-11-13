@@ -64,3 +64,19 @@ Datepart =  SUBSTRING_INDEX( Date, '-', 1 ),
 Monthpart = SUBSTRING(SUBSTRING_INDEX(Date, '-', 2),CHAR_LENGTH(SUBSTRING_INDEX(Date, '-', 1))+2),
 Yearpart = SUBSTRING_INDEX( Date, '-', -1 )
 where Datepart=0;
+
+SELECT CONCAT(LPAD(SUBSTRING_INDEX( Date, '-', 1 ), 2, '0'), "-" , 
+		IF(SUBSTRING(SUBSTRING_INDEX(Date, '-', 2),CHAR_LENGTH(SUBSTRING_INDEX(Date, '-', 1))+2) = 1, 'Jan',
+        IF(SUBSTRING(SUBSTRING_INDEX(Date, '-', 2),CHAR_LENGTH(SUBSTRING_INDEX(Date, '-', 1))+2) = 2,'Feb',
+        IF(SUBSTRING(SUBSTRING_INDEX(Date, '-', 2),CHAR_LENGTH(SUBSTRING_INDEX(Date, '-', 1))+2) = 3,'Mar', 
+        IF(SUBSTRING(SUBSTRING_INDEX(Date, '-', 2),CHAR_LENGTH(SUBSTRING_INDEX(Date, '-', 1))+2) = 4,'Apr', 
+        IF(SUBSTRING(SUBSTRING_INDEX(Date, '-', 2),CHAR_LENGTH(SUBSTRING_INDEX(Date, '-', 1))+2) = 5,'May',  
+        IF(SUBSTRING(SUBSTRING_INDEX(Date, '-', 2),CHAR_LENGTH(SUBSTRING_INDEX(Date, '-', 1))+2) = 6,'Jun', 
+        IF(SUBSTRING(SUBSTRING_INDEX(Date, '-', 2),CHAR_LENGTH(SUBSTRING_INDEX(Date, '-', 1))+2) = 7,'Jul', 
+        IF(SUBSTRING(SUBSTRING_INDEX(Date, '-', 2),CHAR_LENGTH(SUBSTRING_INDEX(Date, '-', 1))+2) = 8,'Aug', 
+        IF(SUBSTRING(SUBSTRING_INDEX(Date, '-', 2),CHAR_LENGTH(SUBSTRING_INDEX(Date, '-', 1))+2) = 9,'Sep',  
+        IF(SUBSTRING(SUBSTRING_INDEX(Date, '-', 2),CHAR_LENGTH(SUBSTRING_INDEX(Date, '-', 1))+2) = 10,'Oct', 
+        IF(SUBSTRING(SUBSTRING_INDEX(Date, '-', 2),CHAR_LENGTH(SUBSTRING_INDEX(Date, '-', 1))+2) = 11,'Nov',
+        IF(SUBSTRING(SUBSTRING_INDEX(Date, '-', 2),CHAR_LENGTH(SUBSTRING_INDEX(Date, '-', 1))+2) = 12, 'Dec','XXX')))))))))))) ,
+        "-",SUBSTRING_INDEX( Date, '-', -1 )),
+        Date FROM nsewebdata.expiry;
