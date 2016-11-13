@@ -80,3 +80,5 @@ SELECT CONCAT(LPAD(SUBSTRING_INDEX( Date, '-', 1 ), 2, '0'), "-" ,
         IF(SUBSTRING(SUBSTRING_INDEX(Date, '-', 2),CHAR_LENGTH(SUBSTRING_INDEX(Date, '-', 1))+2) = 12, 'Dec','XXX')))))))))))) ,
         "-",SUBSTRING_INDEX( Date, '-', -1 )),
         Date FROM nsewebdata.expiry;
+
+CREATE TABLE NIFTY (INSTRUMENT text,SYMBOL text,EXPIRY_DT text,STRIKE_PR real,OPTION_TYP text,OPEN real,HIGH real,LOW real,CLOSE real,SETTLE_PR real,CONTRACTS real,VAL_INLAKH real,OPEN_INT real,CHG_IN_OI real,TIMESTAMP text);
