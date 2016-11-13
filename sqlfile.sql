@@ -37,6 +37,11 @@ TABLE_NAME,substr(TABLE_NAME,3,9) as fulldate,
 #STRIKE_PR > (SELECT OPEN FROM nsewebdata.fo04MAY2009bhav where symbol='BANKNIFTY' and INSTRUMENT='FUTIDX' and EXPIRY_DT like '%MAY%') - 200
 #order by STRIKE_PR desc;
 
+UPDATE `nsewebdata`.`expiry`
+SET
+Date =REPLACE(Date,'/','-');
+
+
 SELECT * FROM nsewebdata.fo18MAY2005bhav where symbol='NIFTY' and EXPIRY_DT like '%MAY%';
 
 #SELECT * FROM nsewebdata.fo04MAY2009bhav where symbol='BANKNIFTY' and INSTRUMENT='OPTIDX' and EXPIRY_DT like '%MAY%' and OPEN!=0 and
