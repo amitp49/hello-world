@@ -52,3 +52,8 @@ SELECT * FROM nsewebdata.fo18MAY2005bhav where symbol='NIFTY' and EXPIRY_DT like
 
 
 SELECT STRIKE_PR,OPEN,CLOSE,CLOSE-OPEN FROM nsewebdata.fo03oct2016bhav where symbol='BANKNIFTY' and INSTRUMENT='OPTIDX' and EXPIRY_DT like '%oct%' and OPEN!=0 and             OPTION_TYP = 'CE' and             STRIKE_PR > 19511.15 and             STRIKE_PR < 19631.15             order by STRIKE_PR desc
+
+SELECT SUBSTRING_INDEX( Date, '-', 1 ),
+SUBSTRING(SUBSTRING_INDEX(Date, '-', 2),CHAR_LENGTH(SUBSTRING_INDEX(Date, '-', 1))+2),
+SUBSTRING_INDEX( Date, '-', -1 ),
+Date from nsewebdata.expiry;
