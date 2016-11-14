@@ -1,0 +1,5 @@
+C:\work\nse\csharp\DownloaderNse\DownloaderNse\bin\Debug\DownloaderNse.exe
+C:\work\nse\csharp\DownloaderNse\DownloaderNse\bin\Debug\DownloaderNse.pdb
+C:\work\nse\csharp\DownloaderNse\DownloaderNse\obj\Debug\DownloaderNse.csprojResolveAssemblyReference.cache
+C:\work\nse\csharp\DownloaderNse\DownloaderNse\obj\Debug\DownloaderNse.exe
+C:\work\nse\csharp\DownloaderNse\DownloaderNse\obj\Debug\DownloaderNse.pdb
